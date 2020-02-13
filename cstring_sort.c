@@ -22,7 +22,7 @@ int main()
 
     fileCopy(fp);
 
-    printf("%s  %s  %s",dBasePeople->lastName,dBasePeople->firstName,dBasePeople->cityName);
+    //printf("%s  %s  %s",dBasePeople->lastName,dBasePeople->firstName,dBasePeople->cityName);
 
     return 0;
 }
@@ -30,17 +30,17 @@ int main()
 void fileCopy(FILE *fp)
 {
 	char *ch;
+	static char str[60];
+
 	if(fp != NULL)
 	{
 		int i=0;
-		while((ch=fgetc(fp))!=EOF)
+		while(fgets(str,05,fp)!=' ' )
 		{
-			if(i==0) {
-
-				strcpy(dBasePeople->lastName,ch); }
-			else if(i==1) {strcpy(dBasePeople->firstName,ch) ; }
-			else {strcpy(dBasePeople->cityName,ch) ;}
-
+			strcpy(dBasePeople->lastName,str);
+			strcpy(dBasePeople->firstName,str) ;
+			strcpy(dBasePeople->cityName,str) ;
+			printf("%s  %s  %s",dBasePeople->lastName,dBasePeople->firstName,dBasePeople->cityName);
 		}
 
 	}

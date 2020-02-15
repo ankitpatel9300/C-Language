@@ -10,7 +10,7 @@ void fileCopy(FILE *fp);
     char firstName[N];
     char cityName[N]; } ;
  typedef struct person_struct person_t;
- person_t dBasePeople[100];
+ static person_t dBasePeople[100];
 int main()
 {
 
@@ -29,20 +29,39 @@ int main()
 
 void fileCopy(FILE *fp)
 {
-	char *ch;
-	static char str[60];
+	char ch;
+	//static char str[05];
 
 	if(fp != NULL)
 	{
-		int i=0;
-		while(fgets(str,05,fp)!=' ' )
+		int count=0,i=0;
+		while((ch=fgetc(fp))!=EOF )
 		{
-			strcpy(dBasePeople->lastName,str);
-			strcpy(dBasePeople->firstName,str) ;
-			strcpy(dBasePeople->cityName,str) ;
-			printf("%s  %s  %s",dBasePeople->lastName,dBasePeople->firstName,dBasePeople->cityName);
-		}
+			if(ch==' '|| ch=='\n')
+			{
+				printf("\n");
+				++count;
+			}
+			else
+			{
+				if(i==0) {
+					static char *ptr= &(dBasePeople->lastName);
+					*(dBasePeople->lastName)=ch ;
+					 ptr++ ;           }
+				else if(i==1) { *(dBasePeople->firstName)=ch ;}
+		else if(i==2) {*(dBasePeople->cityName)=ch ; }
 
+				printf("%c",ch);
+
+			//strcpy(dBasePeople->lastName,str);
+			//strcpy(dBasePeople->firstName,str) ;
+			//strcpy(dBasePeople->cityName,str) ;
+
+
+		}
+		//printf("%s  ",dBasePeople->lastName);   //,dBasePeople->firstName,dBasePeople->cityName)
+	}
+		printf("%s",dBasePeople->lastName);
 	}
 	else
 	{

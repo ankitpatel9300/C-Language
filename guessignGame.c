@@ -17,16 +17,16 @@ void* automatic_Guess(void* arg)
 		low=mid+1;
 		else if (killo[mid]== *value)
 		{
-			printf(" thread  guess matches with System Guess %d \n" ,*value);
+			printf(" \n thread  guess matches with System Guess %d \n" ,*value);
 			break;
 		}
 		else
 			high=mid-1;
 		    mid=(low+high)/2;
 
-
+   sleep(2);
 	}
-	sleep(2);
+
 	return NULL;
 }
 
@@ -43,8 +43,8 @@ int main()
 	//creating 4 threads
 	for(int i=0;i<MAX_THREADS;i++)
 	{
-		pthread_create(&threads[i],NULL ,automatic_Guess,&num) ;
-		sleep(2);
+		pthread_create(&threads[i],NULL ,&automatic_Guess,&num) ;
+
 	}
 
 	struct timeval start ,end ;
@@ -79,10 +79,10 @@ int main()
     printf("Time spent is %ld Seconds" ,micros);
 	return 0;
 
-	for(int i =0; i< MAX_THREADS; i++)
+	/*for(int i =0; i< MAX_THREADS; i++)
 	{
 		pthread_join(threads[i],NULL);
-	}
+	}  */
 return 0;
 }
 

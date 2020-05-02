@@ -19,7 +19,7 @@ int main ()  {
     struct person wife ;          //variable wife of data-type struct
     
     /*Important :- You can not assign string 
-    to a struct member(wife.name=Dhara is invalid )  */
+    to a struct member(wife.name="Dhara" is invalid )  */
     strcpy(wife.name ,"Dhara_Patel") ; 
     wife.birthday.Year=1995;
     wife.birthday.Month=03 ;

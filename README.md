@@ -2,6 +2,6 @@
 ### Learning C++
 
 > minimum c program known as dummy
-  main () { }
+> main () { }
 
 > Celsius= (5/9)(Fahrenheit -32)

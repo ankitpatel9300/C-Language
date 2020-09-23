@@ -1,6 +1,9 @@
 ## C-Language
 ### Learning C++
 
+http://github.com - automatic!
+[GitHub](http://github.com)
+
 > Minimum C program known as dummy
 >> main () { }
 
